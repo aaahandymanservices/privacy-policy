@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AAA Handyman Services - Expert home repairs, carpentry, plumbing, electrical, painting, decks, and more in Oakland County. Locally owned and operated.">
+    <title>AAA Handyman Services | Waterford, MI | Home Repairs &amp; Minor Improvements</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/aaa-logo.jpg" type="image/jpeg">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap');
+        
+        :root {
+            --primary-red: #b91c1c;
+            --primary-blue: #1e40af;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', 'Inter', system_ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-active {
+            color: #b91c1c;
+            font-weight: 600;
+        }
+
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #b91c1c 100%);
+        }
+
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, #b91c1c, #1e40af);
+            border-radius: 2px;
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo-shadow {
+            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.15));
+        }
+
+        .vibrant-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vibrant-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(185 28 28 / 0.3), 0 4px 6px -4px rgb(185 28 28 / 0.3);
+        }
+
+        .vibrant-btn-red {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+        }
+
+        .vibrant-btn-blue {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+        }
+
+        .service-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .form-input {
+            transition: all 0.2s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #b91c1c;
+            box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.1);
+        }
+
+        .metric {
+            transition: transform 0.3s ease;
+        }
+
+        .metric:hover {
+            transform: scale(1.05);
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-slate-50 text-slate-800">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="bg-white border-b border-slate-200 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo + Brand -->
+                <div class="flex items-center gap-x-4">
+                    <div class="flex items-center gap-x-3">
+                        <img src="assets/aaa-logo.jpg" alt="AAA Handyman Services Logo" class="h-14 w-14 object-contain rounded-xl shadow-md logo-shadow">
+                        <div>
+                            <div class="flex items-baseline gap-x-1">
+                                <span class="text-3xl font-black tracking-tighter text-slate-900">AAA</span>
+                                <span class="text-xl font-semibold text-slate-700">Handyman</span>
+                            </div>
+                            <p class="text-[10px] font-bold tracking-[2px] text-red-600 -mt-1">SERVICES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                    <a href="#services" class="text-slate-600 hover:text-slate-900 transition-colors">Services</a>
+                    <a href="#why-us" class="text-slate-600 hover:text-slate-900 transition-colors">Why Us</a>
+                    <a href="#contact" class="text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
+                </div>
+
+                <!-- Right side actions -->
+                <div class="hidden md:flex items-center gap-x-3">
+                    <a href="tel:2488708603" 
+                       class="flex items-center gap-x-2 px-4 py-2.5 text-sm font-semibold text-white bg-slate-800 hover:bg-slate-900 rounded-2xl transition-all active:scale-[0.985]">
+                        <i class="fas fa-phone mr-1.5"></i>
+                        <span>(248) 870-8603</span>
+                    </a>
+                    
+                    <a href="mailto:aaahandymanservices2026@gmail.com" 
+                       class="flex items-center gap-x-2 px-5 py-2.5 text-sm font-semibold border border-slate-300 hover:bg-slate-100 text-slate-700 rounded-2xl transition-all">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <span>Email Us</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn"
+                        class="md:hidden flex items-center justify-center w-11 h-11 text-slate-700 hover:bg-slate-100 rounded-2xl transition-colors"
+                        aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white">
+            <div class="px-6 py-6 flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#about" class="mobile-link py-2 text-slate-700">About Us</a>
+                <a href="#services" class="mobile-link py-2 text-slate-700">Our Services</a>
+                <a href="#why-us" class="mobile-link py-2 text-slate-700">Why Choose AAA</a>
+                <a href="#contact" class="mobile-link py-2 text-slate-700">Contact</a>
+                
+                <div class="pt-4 border-t flex flex-col gap-y-3">
+                    <a href="tel:2488708603" class="flex items-center justify-center gap-x-2 w-full py-3 bg-slate-900 text-white font-semibold rounded-2xl">
+                        <i class="fas fa-phone"></i>
+                        <span>Call (248) 870-8603</span>
+                    </a>
+                    <a href="mailto:aaahandymanservices2026@gmail.com" class="flex items-center justify-center gap-x-2 w-full py-3 border border-slate-300 font-semibold rounded-2xl">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-bg text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24">
+            <div class="grid md:grid-cols-12 gap-y-12 items-center">
+                <!-- Hero Content -->
+                <div class="md:col-span-7 lg:pr-8">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-3xl mb-6 border border-white/20">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span class="text-sm font-semibold tracking-wide">Serving Oakland County Since 2026</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-7xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-6">
+                        Quality Home<br>Repairs.<br>
+                        <span class="bg-gradient-to-r from-red-400 to-white bg-clip-text text-transparent">Done Right.</span>
+                    </h1>
+                    
+                    <p class="max-w-lg text-xl text-white/90 mb-9 leading-relaxed">
+                        Locally owned and independently operated in Oakland County, MI. 
+                        Expert craftsmanship for every maintenance and repair need.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" 
+                           class="vibrant-btn vibrant-btn-red inline-flex items-center justify-center gap-x-3 px-8 py-4 text-lg font-bold text-white rounded-3xl shadow-xl shadow-red-900/30">
+                            <span>Get an Estimate</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        
+                        <a href="tel:2488708603" 
+                           class="vibrant-btn inline-flex items-center justify-center gap-x-3 px-8 py-4 text-lg font-bold bg-white text-slate-900 hover:bg-slate-100 rounded-3xl shadow-xl">
+                            <i class="fas fa-phone"></i>
+                            <span>Call Now</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-6 mt-8 text-sm">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-full border border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-full border border-white/30"></div>
+                            <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-full border border-white/30"></div>
+                        </div>
+                        <p class="text-white/80 text-sm font-medium">1–3 skilled craftsmen ready daily</p>
+                    </div>
+                </div>
+                
+                <!-- Hero Logo / Visual -->
+                <div class="md:col-span-5 flex justify-center md:justify-end">
+                    <div class="relative">
+                        <div class="absolute -inset-6 bg-white/10 rounded-[3rem] blur-2xl"></div>
+                        <img src="assets/aaa-logo.jpg" 
+                             alt="AAA Handyman Services - Professional Logo" 
+                             class="relative w-[280px] md:w-[320px] lg:w-[340px] rounded-3xl shadow-2xl border-4 border-white/30 logo-shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Trust bar -->
+        <div class="border-t border-white/20 bg-black/20 py-4">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-3 text-sm text-white/80">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <span class="font-medium">No job too small we tackle them all</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <span class="font-medium">Competitive rates — bid or hourly</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fas fa-check-circle text-emerald-400"></i>
+                        <span class="font-medium">Available Mon–Sat 9am–6pm • 24/7 Emergency Services</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="max-w-7xl mx-auto px-6 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-10 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-xs font-bold text-red-600 mb-3">EST. 2026 • Oakland County, MICHIGAN</div>
+                <h2 class="section-header text-5xl font-black tracking-tighter text-slate-900 mb-6">About AAA Handyman Services</h2>
+                
+                <div class="prose prose-lg max-w-none text-slate-600">
+                    <p class="text-xl leading-relaxed">
+                        Locally owned and independently operated in Oakland County, Michigan, 
+                        AAA Handyman Services is your trusted partner for all home maintenence and repair needs.
+                    </p>
+                    <p>
+                        We exclusively serve the local community with pride, delivering reliable, 
+                        high-quality workmanship on every project. Our team of skilled 
+                        craftsmen brings years of hands-on experience and a commitment to excellence 
+                        that shows in every finished job.
+                    </p>
+                </div>
+                
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <div class="flex items-center gap-x-3 bg-white border border-slate-200 rounded-2xl px-5 py-3 shadow-sm">
+                        <i class="fas fa-map-marker-alt text-red-600 text-xl"></i>
+                        <div>
+                            <div class="text-xs uppercase tracking-widest text-slate-500">Based in</div>
+                            <div class="font-semibold">Waterford, Michigan</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-x-3 bg-white border border-slate-200 rounded-2xl px-5 py-3 shadow-sm">
+                        <i class="fas fa-users text-blue-700 text-xl"></i>
+                        <div>
+                            <div class="text-xs uppercase tracking-widest text-slate-500">Team</div>
+                            <div class="font-semibold">1–3 Skilled Craftsmen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5">
+                <div class="bg-white border border-slate-100 shadow-xl rounded-3xl p-8">
+                    <h3 class="font-bold text-xl mb-4 flex items-center gap-x-3">
+                        <span class="text-red-600"><i class="fas fa-handshake"></i></span> 
+                        Our Promise to You
+                    </h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>Honest, upfront pricing — no surprises</span></li>
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>Respect for your person, home, and time</span></li>
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>Clean, professional work every visit</span></li>
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>Flexible scheduling that works around your life</span></li>
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>Real solutions, not more issues</span></li>
+                        <li class="flex gap-x-3"><i class="fas fa-check text-emerald-500 mt-1.5"></i> <span>24/7 Emergency Services</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="bg-white py-16 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-1 bg-red-100 text-red-700 text-xs font-bold tracking-widest rounded-3xl mb-4">WHAT WE DO BEST</div>
+                <h2 class="section-header text-5xl font-black tracking-tighter">Expert Services</h2>
+                <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">From quick fixes to minor projects — we can handle it with skill and care.</p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-red-100 text-red-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Carpentry &amp; Trim</h3>
+                    <p class="text-slate-600 leading-relaxed">Interior and exterior carpentry and trim work. Precision craftsmanship that enhances your home's character.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-700 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Doors</h3>
+                    <p class="text-slate-600 leading-relaxed">Door installation and repair. Interior, exterior, sliding, and entry doors — fitted perfectly and functioning smoothly.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-sky-100 text-sky-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Plumbing Fixes</h3>
+                    <p class="text-slate-600 leading-relaxed">Faucets, showerheads, drains, and minor plumbing repairs. Fast, clean solutions to stop leaks and restore flow.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-amber-100 text-amber-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-border-all"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Drywall</h3>
+                    <p class="text-slate-600 leading-relaxed">Drywall repair. Patch holes, fix cracks, and create smooth, paint-ready surfaces.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Electrical Work</h3>
+                    <p class="text-slate-600 leading-relaxed">Outlets, switches, covers, lights, and ceiling fans. Safe, updates and repairs. NO REWIRING OR BREAKER BOX WORK</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-violet-100 text-violet-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Flooring</h3>
+                    <p class="text-slate-600 leading-relaxed">Replacement, and repair for tile, hardwood, Pergo, laminate, and carpet. Beautiful results that last.</p>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-pink-100 text-pink-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Painting</h3>
+                    <p class="text-slate-600 leading-relaxed">Interior, exterior, and ceiling painting. Clean lines, even coverage, and professional finishes that transform spaces.</p>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-orange-100 text-orange-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Decks</h3>
+                    <p class="text-slate-600 leading-relaxed">Deck resurfacing, repair, and staining. Create beautiful, safe outdoor living spaces.</p>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-teal-100 text-teal-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-grip-lines"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Privacy Fences</h3>
+                    <p class="text-slate-600 leading-relaxed">Privacy fence repair, maintenance, and staining. Quality materials and solid construction for lasting security and beauty.</p>
+                </div>
+                
+                <!-- Service 10 &amp; 11 combined -->
+                <div class="service-card bg-white border border-slate-200 hover:border-red-200 rounded-3xl p-7 group">
+                    <div class="service-icon w-14 h-14 flex items-center justify-center bg-cyan-100 text-cyan-600 rounded-2xl mb-5 text-3xl">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl tracking-tight mb-2">Seasonal Maintenance</h3>
+                    <p class="text-slate-600 leading-relaxed">Home / Gutters / Power Washing / Pool / RV / Boat. Keep your property in top condition year-round.</p>
+                </div>
+                
+            </div>
+            
+            <div class="mt-10 text-center">
+                <p class="text-lg text-slate-600">Don't see exactly what you need? <a href="#contact" class="font-semibold text-red-600 hover:underline">Contact us</a> — we handle a wide variety of home projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US / STATS SECTION -->
+    <section id="why-us" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="section-header text-5xl font-black tracking-tighter">Why Homeowners Choose AAA</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Metric 1 -->
+            <div class="metric bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-sm hover:shadow-md transition-all">
+                <div class="mx-auto w-16 h-16 flex items-center justify-center bg-red-100 text-red-600 rounded-2xl mb-6">
+                    <i class="fas fa-user-tie text-4xl"></i>
+                </div>
+                <div class="text-6xl font-black text-slate-900 mb-1">1–3</div>
+                <div class="font-bold text-xl tracking-tight">Skilled Craftsmen</div>
+                <p class="mt-3 text-slate-600">Experienced professionals who take pride in every detail of the job and customer satisfaction.</p>
+            </div>
+            
+            <!-- Metric 2 -->
+            <div class="metric bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-sm hover:shadow-md transition-all">
+                <div class="mx-auto w-16 h-16 flex items-center justify-center bg-blue-100 text-blue-700 rounded-2xl mb-6">
+                    <i class="fas fa-clock text-4xl"></i>
+                </div>
+                <div class="text-6xl font-black text-slate-900 mb-1">Mon–Sat</div>
+                <div class="font-bold text-xl tracking-tight">9:00 AM – 6:00 PM</div>
+                <p class="mt-3 text-slate-600">Flexible scheduling with same-week availability on most jobs. 24/7 emergency services available</p>
+            </div>
+            
+            <!-- Metric 3 -->
+            <div class="metric bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-sm hover:shadow-md transition-all">
+                <div class="mx-auto w-16 h-16 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-2xl mb-6">
+                    <i class="fas fa-handshake text-4xl"></i>
+                </div>
+                <div class="text-6xl font-black text-slate-900 mb-1">Expert Craftsman</div>
+                <div class="font-bold text-xl tracking-tight">No Job Too Small or Complicated</div>
+                <p class="mt-3 text-slate-600">From fixing ridge vent to foundational repairs — we do it all.</p>
+            </div>
+        </div>
+        
+        <div class="mt-10 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl px-10 py-9 flex flex-col md:flex-row items-center gap-y-6 justify-between">
+            <div>
+                <div class="uppercase text-xs tracking-[3px] text-white/60 mb-1">PRICING</div>
+                <div class="text-3xl font-black tracking-tight">Competitive rates by bid or man hour.</div>
+            </div>
+            <a href="#contact" class="inline-flex items-center gap-x-3 px-8 py-4 bg-white text-slate-900 hover:bg-slate-100 font-bold rounded-3xl transition-all active:scale-[0.985]">
+                Request Your Estimate Today <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- HOURS &amp; AVAILABILITY -->
+    <section class="bg-slate-900 text-white py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-x-12 gap-y-6">
+                <div>
+                    <div class="uppercase tracking-[2.5px] text-xs text-white/60 mb-1">WE'RE HERE FOR YOU</div>
+                    <div class="text-4xl font-black tracking-tighter">Monday – Saturday</div>
+                    <div class="text-3xl font-semibold text-red-400 mt-1">9:00 AM – 6:00 PM</div>
+                </div>
+                <div class="hidden md:block w-px h-16 bg-white/20"></div>
+                <div class="max-w-xs text-left md:text-left">
+                    <p class="text-white/90">1 to 3 skilled craftsmen ready to tackle your project. We respond quickly and work efficiently so your home is back to normal fast.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-12 gap-x-10 gap-y-12">
+            
+            <!-- Contact Info -->
+            <div class="lg:col-span-5">
+                <div class="sticky top-24">
+                    <div class="uppercase text-red-600 text-xs font-extrabold tracking-[3px] mb-3">LET'S GET STARTED</div>
+                    <h2 class="text-5xl font-black tracking-tighter mb-6">Ready to improve your home?</h2>
+                    
+                    <div class="space-y-7 text-lg">
+                        <div class="flex gap-x-5">
+                            <div class="mt-1 text-red-600"><i class="fas fa-phone fa-fw text-2xl"></i></div>
+                            <div>
+                                <div class="font-semibold text-sm tracking-widest text-slate-500">PHONE</div>
+                                <a href="tel:2488708603" class="font-bold text-2xl hover:text-red-600 transition-colors">(248) 870-8603</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-x-5">
+                            <div class="mt-1 text-red-600"><i class="fas fa-envelope fa-fw text-2xl"></i></div>
+                            <div>
+                                <div class="font-semibold text-sm tracking-widest text-slate-500">EMAIL</div>
+                                <a href="mailto:aaahandymanservices2026@gmail.com" class="font-bold hover:text-red-600 transition-colors break-all">aaahandymanservices2026@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-x-5">
+                            <div class="mt-1 text-red-600"><i class="fas fa-map-marker-alt fa-fw text-2xl"></i></div>
+                            <div>
+                                <div class="font-semibold text-sm tracking-widest text-slate-500">LOCATION</div>
+                                <div class="font-bold">Waterford, Michigan</div>
+                                <div class="text-slate-600">Serving Oakland County &amp; select surrounding areas</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 p-6 bg-white border border-slate-200 rounded-3xl">
+                        <div class="flex items-start gap-x-4">
+                            <i class="fas fa-info-circle text-blue-600 text-3xl mt-0.5"></i>
+                            <div class="text-sm leading-relaxed text-slate-600">
+                                <span class="font-semibold text-slate-800">Pro Tip:</span> The more details you provide about your project (photos help!), the faster and more accurate we can prepare your estimate.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="lg:col-span-7">
+                <div class="bg-white border border-slate-200 shadow-xl rounded-3xl p-8 md:p-10">
+                    <h3 class="font-bold text-3xl tracking-tight mb-2">Request a Estimate or Ask a Question</h3>
+                    <p class="text-slate-600 mb-8">Fill out the form below and we'll get back to you within 48 hours.</p>
+                    
+                    <!-- Formspree Form -->
+                    <form id="contact-form" action="https://formspree.io/f/xojovqqr" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-slate-700 mb-1.5">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" name="name" required 
+                                       class="form-input w-full px-5 py-3.5 border border-slate-300 rounded-2xl text-lg focus:border-red-500">
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="form-input w-full px-5 py-3.5 border border-slate-300 rounded-2xl text-lg focus:border-red-500"
+                                       placeholder="(248) 555-1234">
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" required 
+                                   class="form-input w-full px-5 py-3.5 border border-slate-300 rounded-2xl text-lg focus:border-red-500"
+                                   placeholder="you@email.com">
+                        </div>
+                        
+                        <!-- Service Type -->
+                        <div>
+                            <label for="service" class="block text-sm font-semibold text-slate-700 mb-1.5">What service do you need?</label>
+                            <select id="service" name="service" 
+                                    class="form-input w-full px-5 py-3.5 border border-slate-300 rounded-2xl text-lg bg-white focus:border-red-500">
+                                <option value="">Select a service (or describe below)</option>
+                                <option value="Carpentry & Trim">Carpentry &amp; Trim</option>
+                                <option value="Doors">Door & Screen Installation &amp; Repair</option>
+                                <option value="Plumbing">Minor Plumbing</option>
+                                <option value="Drywall">Drywall</option>
+                                <option value="Electrical">Minor Electrical</option>
+                                <option value="Flooring">Flooring</option>
+                                <option value="Painting">Interior / Exterior Painting</option>
+                                <option value="Decks">Decks</option>
+                                <option value="Fences">Privacy Fence</option>
+                                <option value="Maintenance">Seasonal Maintenance / Home / Gutters / Power Washing / Pool / RV / Boat</option>
+                                <option value="Other">Other / Not sure yet</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-slate-700 mb-1.5">Project Details <span class="text-red-500">*</span></label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="form-input w-full px-5 py-3.5 border border-slate-300 rounded-3xl text-lg resize-y min-h-[120px] focus:border-red-500"
+                                      placeholder="Tell us about your project... (e.g. size, timeline, specific issues, photos description)"></textarea>
+                        </div>
+                        
+                        <!-- Honeypot / hidden fields -->
+                        <input type="hidden" name="_subject" value="New inquiry from AAA Handyman Services website">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" 
+                                class="vibrant-btn vibrant-btn-red w-full flex items-center justify-center gap-x-3 py-4 text-xl font-extrabold text-white rounded-3xl shadow-lg shadow-red-900/30 active:scale-[0.985]">
+                            <span>Send Message &amp; Get Estimate</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        
+                        <p class="text-center text-xs text-slate-500">We fully respect your privacy. Your information is used only to respond to your inquiry.</p>
+                    </form>
+                    
+                    <!-- Success Message (hidden by default, shown via JS) -->
+                    <div id="form-success" class="hidden mt-6 p-6 bg-emerald-50 border border-emerald-200 rounded-3xl text-center">
+                        <i class="fas fa-check-circle text-emerald-500 text-4xl mb-3"></i>
+                        <h4 class="font-bold text-xl text-emerald-700">Thank you! Your message has been sent.</h4>
+                        <p class="text-emerald-600 mt-1">We'll reply within 24 hours. You can also call us directly at <a href="tel:2488708603" class="font-semibold underline">(248) 870-8603</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="bg-gradient-to-r from-red-700 to-red-800 py-16 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Let's get your project started.</h2>
+            <p class="mt-4 text-xl text-white/90 max-w-md mx-auto">Call or message us — no job is too small, and we're ready when you are.</p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:2488708603" 
+                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 bg-white text-red-700 hover:bg-slate-100 font-extrabold text-lg rounded-3xl transition-all">
+                    <i class="fas fa-phone"></i>
+                    <span>Call (248) 870-8603</span>
+                </a>
+                <a href="#contact" 
+                   class="inline-flex items-center justify-center gap-x-3 px-10 py-4 border-2 border-white/70 hover:bg-white/10 font-extrabold text-lg rounded-3xl transition-all">
+                    <span>Send Message</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-white/70 py-12 text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-y-6">
+                <div class="flex items-center gap-x-4">
+                    <img src="assets/aaa-logo.jpg" alt="AAA Handyman Services" class="h-9 w-9 rounded-xl object-contain opacity-90">
+                    <div>
+                        <span class="font-black text-white text-xl tracking-tighter">AAA Handyman Services</span>
+                        <div class="text-[10px] tracking-widest -mt-1 text-white/50">Oakland County, MICHIGAN</div>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right text-xs">
+                    <p>© 2026 AAA Handyman Services. All rights reserved.</p>
+                    <p class="mt-0.5">Locally owned &amp; operated in Oakland County, MI • <span class="text-white/50">aaahandyman.services • MCL 339.2403 Compliant </span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tailwind script configuration
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent-red', '#b91c1c');
+        }
+        
+        // Navbar scroll effect
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        mobileBtn.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        mobileBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    }
+                });
+                
+                // Close mobile menu when clicking a link
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    });
+                });
+            }
+        }
+        
+        // Smooth scroll for anchor links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        
+                        const navHeight = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - navHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Form handling with Formspree + nice success UX
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('form-success');
+            
+            if (!form || !successMessage) return;
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <span class="flex items-center justify-center gap-x-3">
+                        <i class="fas fa-spinner fa-spin"></i> 
+                        <span>Sending...</span>
+                    </span>
+                `;
+                
+                try {
+                    const formData = new FormData(form);
+                    
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        form.style.display = 'none';
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('flex', 'flex-col', 'items-center');
+                        
+                        // Optional: reset form in background
+                        setTimeout(() => {
+                            form.reset();
+                        }, 1500);
+                    } else {
+                        // Formspree error
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    // Fallback: submit traditionally if AJAX fails
+                    console.warn('AJAX form failed, submitting traditionally:', error);
+                    
+                    // Re-enable and submit the old-fashioned way
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    
+                    // Create a temporary form to submit
+                    const tempForm = form.cloneNode(true);
+                    tempForm.style.display = 'none';
+                    document.body.appendChild(tempForm);
+                    tempForm.submit();
+                }
+            });
+            
+            // Allow closing success message and showing form again (for demo/testing)
+            successMessage.addEventListener('click', () => {
+                if (confirm('Would you like to submit another inquiry?')) {
+                    successMessage.classList.add('hidden');
+                    form.style.display = 'block';
+                    form.reset();
+                }
+            });
+        }
+        
+        // Keyboard accessibility for mobile menu
+        function initAccessibility() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileBtn = document.getElementById('mobile-menu-btn');
+                    
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        if (mobileBtn) mobileBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    }
+                }
+            });
+        }
+        
+        // Initialize everything
+        function initializeWebsite() {
+            initializeTailwind();
+            initNavbar();
+            initSmoothScroll();
+            initContactForm();
+            initAccessibility();
+            
+            // Easter egg: clicking logo scrolls to top
+            const logo = document.querySelector('img[alt*="AAA Handyman"]');
+            if (logo) {
+                logo.style.cursor = 'pointer';
+                logo.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            // Console message for developers
+            console.log('%c[AAA Handyman] Vibrant business website initialized successfully. Formspree endpoint active.', 'color:#64748b');
+        }
+        
+        // Boot the site
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeWebsite);
+        } else {
+            initializeWebsite();
+        }
+    </script>
+</body>
+</html>
